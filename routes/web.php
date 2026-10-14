@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
-Route::get('/', function () {
-    return 'Halo, Project Kampus!';
-});
+// Rute otomatis untuk seluruh fitur CRUD Mahasiswa
+Route::resource('student', StudentController::class);
+
+// Mengarahkan halaman utama (/) langsung ke daftar mahasiswa
+Route::get('/', [StudentController::class, 'index']);
